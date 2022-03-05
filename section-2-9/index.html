@@ -5,8 +5,10 @@
     <link rel="stylesheet" type="text/css" href="main.css" />
   </head>
   <body>
-    <div id="app"></div>
-
+    <!-- using a string template below -->
+    <div class="app">{{fullName()}}</div>
+    <!-- always make sure if using cdn script to put it before app script -->
+    <script src="https://unpkg.com/vue@3"></script>
     <script src="app.js"></script>
   </body>
 </html>
