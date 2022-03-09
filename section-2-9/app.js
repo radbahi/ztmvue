@@ -3,6 +3,8 @@ const vm = Vue.createApp({
     return {
       firstName: "John",
       lastName: "Doe",
+      url: "https://google.com",
+      age: 20,
     };
   },
   //methods is where we define functions for our app
@@ -11,8 +13,16 @@ const vm = Vue.createApp({
     fullName() {
       return `${this.firstName} ${this.lastName.toUpperCase()}`;
     },
+    increment() {
+      this.age++;
+    },
+    updateLastName(msg, event) {
+      event.preventDefault();
+      console.log(msg);
+      this.lastName = event.target.value;
+    },
   },
-}).mount(".app");
+}).mount("#app");
 
 // setTimeout(() => {
 //   vm.firstName = "Bob";

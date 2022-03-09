@@ -6,7 +6,32 @@
   </head>
   <body>
     <!-- using a string template below -->
-    <div class="app">{{fullName()}}</div>
+    <!-- v-cloak is a attribute that you can add to a element you want to hide, while Vue is mounting -->
+    <!-- v-cloak is good to hide unevaluated vue expressions -->
+    <div id="app" v-cloak>
+      <p>{{fullName()}}</p>
+      <!-- v-bind lets an html element attribute have a dynamic value -->
+      <!-- : is a shorthand for v-bind -->
+      <p><a :href="url" target="_blank">Google</a></p>
+      <p>{{age}}</p>
+      <hr />
+      <!-- v-model enables two-way binding -->
+      <label>First name</label>
+      <input type="text" v-model="firstName" />
+      <label>Last name</label>
+      <!-- below is two-way binding without v-model. v-model is way better -->
+      <!-- we use $ because thats what vue will assign the event object to -->
+      <input
+        type="text"
+        :value="lastName"
+        @input="updateLastName('Last name event triggered!', $event)"
+      />
+      <!-- we can either run an expression or invoke a function with v-on -->
+      <!-- @ is a shorthand for v-on -->
+      <button type="button" @click="increment">Increment</button>
+      <!-- vue assumes any data u access in the template comes from the data object -->
+      <button type="button" @click="age--">Decrement</button>
+    </div>
     <!-- always make sure if using cdn script to put it before app script -->
     <script src="https://unpkg.com/vue@3"></script>
     <script src="app.js"></script>
