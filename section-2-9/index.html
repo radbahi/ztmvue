@@ -21,10 +21,11 @@
       <label>Last name</label>
       <!-- below is two-way binding without v-model. v-model is way better -->
       <!-- we use $ because thats what vue will assign the event object to -->
+      <!-- .prevent works just like .preventDefault, just in an html tag instead -->
       <input
         type="text"
         :value="lastName"
-        @input="updateLastName('Last name event triggered!', $event)"
+        @input.prevent="updateLastName('Last name event triggered!', $event)"
       />
       <!-- we can either run an expression or invoke a function with v-on -->
       <!-- @ is a shorthand for v-on -->

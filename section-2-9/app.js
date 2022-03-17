@@ -17,7 +17,8 @@ const vm = Vue.createApp({
       this.age++;
     },
     updateLastName(msg, event) {
-      event.preventDefault();
+      //we can also use .prevent on the v-on directive in the html tag to do .preventDefault()
+      // event.preventDefault();
       console.log(msg);
       this.lastName = event.target.value;
     },
