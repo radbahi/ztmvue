@@ -1,0 +1,38 @@
+<!DOCTYPE>
+<html>
+
+<head>
+  <title>VueJS Course</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+  <div id="app">
+    <label>
+      <!-- the checkbox applies the opposite boolean if checked, which makes isPurple true -->
+      <input type="checkbox" v-model="isPurple"/> Purple
+    </label>
+
+    <select v-model="selectedColor">
+      <option value="">White</option>
+      <option value="text-black">Black</option>
+      <option value="text-orange">Orange</option>
+    </select>
+
+    <input type="number" v-model="size"/>
+
+    <!-- vue can merge classes after template has been processed. circle_classes and selectedColor is being dynamically added -->
+    <!-- we can add multiple classes by using an array -->
+    <div class="circle" :class="[selectedColor, circle_classes]" :style="[
+    {width: size + 'px', height: size + 'px', lineHeight: size + 'px'}, 
+    {transform: 'rotate(30deg)'}
+    ]">
+      Hi!
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

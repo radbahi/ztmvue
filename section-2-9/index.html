@@ -9,7 +9,7 @@
     <!-- v-cloak is a attribute that you can add to a element you want to hide, while Vue is mounting -->
     <!-- v-cloak is good to hide unevaluated vue expressions -->
     <div id="app" v-cloak>
-      <p>{{fullName()}}</p>
+      <p>{{fullName}}</p>
       <!-- v-bind lets an html element attribute have a dynamic value -->
       <!-- : is a shorthand for v-bind -->
       <p><a :href="url" target="_blank">Google</a></p>
@@ -17,7 +17,11 @@
       <hr />
       <!-- v-model enables two-way binding -->
       <label>First name</label>
-      <input type="text" v-model="firstName" />
+      <!-- lazy makes it so theres no updates until the element is out of focus -->
+      <input type="text" v-model.lazy.trim="firstName" />      
+      <label>Middle name</label>
+      <!-- @keyup is a keyboard event. pressing enter would invoke updateMiddleName -->
+      <input type="text" @keyup.enter="updateMiddleName" />
       <label>Last name</label>
       <!-- below is two-way binding without v-model. v-model is way better -->
       <!-- we use $ because thats what vue will assign the event object to -->
@@ -27,6 +31,9 @@
         :value="lastName"
         @input.prevent="updateLastName('Last name event triggered!', $event)"
       />
+      <label>Age</label>
+      <!-- inputs will always convert data to a string, so you must set the type and v-model to the intended data type accordingly -->
+      <input type="number" v-model.number="age"/>
       <!-- we can either run an expression or invoke a function with v-on -->
       <!-- @ is a shorthand for v-on -->
       <button type="button" @click="increment">Increment</button>
