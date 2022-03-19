@@ -3,7 +3,7 @@ const vm = Vue.createApp({
   data() {
     return {
       firstName: "John",
-      middleName: '',
+      middleName: "",
       lastName: "Doe",
       url: "https://google.com",
       age: 20,
@@ -16,7 +16,7 @@ const vm = Vue.createApp({
       this.age++;
     },
     updateMiddleName(event) {
-      this.middleName = event.target.value
+      this.middleName = event.target.value;
     },
     updateLastName(msg, event) {
       //we can also use .prevent on the v-on directive in the html tag to do .preventDefault()
@@ -29,17 +29,19 @@ const vm = Vue.createApp({
   //computed functions do NOT use parentheses when being invoked in expressions
   computed: {
     fullName() {
-      return `${this.firstName} ${this.middleName} ${this.lastName.toUpperCase()}`;
+      return `${this.firstName} ${
+        this.middleName
+      } ${this.lastName.toUpperCase()}`;
     },
   },
   //whenever a change occurs, you can run a function to execute additional logic, especially async tasks. not used often.
   watch: {
     age(newVal, oldVal) {
       setTimeout(() => {
-        this.age = 20
-      }, 3000)
-    }
-  }
+        this.age = 20;
+      }, 3000);
+    },
+  },
 }).mount("#app");
 
 // setTimeout(() => {

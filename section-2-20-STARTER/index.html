@@ -1,0 +1,33 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <title>VueJS Course</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+
+  <body>
+    <!-- v-if is used for conditional rendering. adds/removes element to dom depending on boolean. cheap onload, expensive toggle -->
+    <div id="app">
+      <!-- v-else and v-else-if only work if the elements are siblings. they DONT have to be the same element type -->
+      <!-- use template instead of div tag if u want to condtionally render several elements without breaking html structure -->
+      <p v-if="mode == 1">Showing v-if directive content</p>
+      <template v-else-if="mode == 2">
+        <p>Bonus content</p>
+        <h3>v-else-if</h3>
+      </template>
+      <p v-else>v-else</p>
+      <!-- v-show doesn't remove the element from dom, but rather applies display: none. expensive onload, cheap toggle
+      does NOT work with template tag or v-else -->
+      <i v-show="mode == 1">v-show</i>
+      <!-- vue can smartly associate v-model with the option values without having to explicitly point to it -->
+      <select v-model="mode">
+        <option value="1">v-if</option>
+        <option value="2">v-else-if</option>
+        <option value="3">v-else</option>
+      </select>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

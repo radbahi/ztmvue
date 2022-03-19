@@ -18,7 +18,7 @@
       <!-- v-model enables two-way binding -->
       <label>First name</label>
       <!-- lazy makes it so theres no updates until the element is out of focus -->
-      <input type="text" v-model.lazy.trim="firstName" />      
+      <input type="text" v-model.lazy.trim="firstName" />
       <label>Middle name</label>
       <!-- @keyup is a keyboard event. pressing enter would invoke updateMiddleName -->
       <input type="text" @keyup.enter="updateMiddleName" />
@@ -33,7 +33,7 @@
       />
       <label>Age</label>
       <!-- inputs will always convert data to a string, so you must set the type and v-model to the intended data type accordingly -->
-      <input type="number" v-model.number="age"/>
+      <input type="number" v-model.number="age" />
       <!-- we can either run an expression or invoke a function with v-on -->
       <!-- @ is a shorthand for v-on -->
       <button type="button" @click="increment">Increment</button>
