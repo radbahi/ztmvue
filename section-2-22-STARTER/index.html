@@ -1,16 +1,30 @@
-<!DOCTYPE>
+<!DOCTYPE >
 <html>
+  <head>
+    <title>VueJS Course</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
 
-<head>
-  <title>VueJS Course</title>
-  <link rel="stylesheet" type="text/css" href="main.css" />
-</head>
+  <body>
+    <div id="app">
+      <ul>
+        <!-- v-for is for iterating through an array -->
+        <!-- wrapping the iterator in parentheses now lets you grab the index -->
+        <!-- remember that a unique key to each item is important -->
+        <li v-for="(bird, index) in birds" :class="bird" :key="bird">
+          {{key}}: {{value}} - Index: {{index}}
+        </li>
+      </ul>
+      <hr />
+      <ul>
+        <li v-for="person in people">
+          <!-- v-for can also loop through objects -->
+          <div v-for="(value, key, index) in person">{{person.age}}</div>
+        </li>
+      </ul>
+    </div>
 
-<body>
-  <div id="app"></div>
-
-  <script src="https://unpkg.com/vue@next"></script>
-  <script src="app.js"></script>
-</body>
-
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
