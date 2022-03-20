@@ -7,7 +7,17 @@
 
   <body>
     <!-- <div id="app">{{ message }}</div> -->
-    <div id="app"></div>
+    <div id="app">
+      <!-- use a tag with the same name as the component inside a vue instance to render it -->
+      <hello></hello>
+      <hello></hello>
+      <hello></hello>
+    </div>
+    <!-- app2 doesn't use compiler -->
+    <!-- <div id="app2"></div> -->
+
+    <!-- the script below uses vue without the compiler, breaking the first app -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.31/vue.runtime.global.min.js"></script> -->
 
     <script src="https://unpkg.com/vue@next"></script>
     <script src="app.js"></script>
