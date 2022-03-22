@@ -1,0 +1,5 @@
+//babel config file
+{
+  //the env preset is the preset that makes babel compile backwards-compatible code
+  "presets": ["@babel/preset-env"]
+}

@@ -1,0 +1,20 @@
+// why sass is better than plain css https://www.mugo.ca/Blog/7-benefits-of-using-SASS-over-conventional-CSS
+
+//importing scss variables
+@import "./variables.scss";
+
+h1 {
+  color: $red;
+  //transform requires a vendor prefix because its not supported on older browsers. autoprefixer takes care of this for us.
+  transform: rotate(-7deg);
+  span {
+    //h1 span
+    color: blue;
+  }
+
+  &:hover {
+    //h1:hover
+    //how to write a function
+    color: darken($red, 25%);
+  }
+}
