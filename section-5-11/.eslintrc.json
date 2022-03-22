@@ -1,0 +1,11 @@
+// eslint configuration https://eslint.org/docs/user-guide/configuring/
+// run "eslint app.js" in terminal
+
+{
+  //preset rules
+  "extends": "eslint:recommended",
+  //tells eslint we're running this code on a browser environment
+  "env": {
+    "browser": true
+  }
+}
