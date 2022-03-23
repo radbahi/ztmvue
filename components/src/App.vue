@@ -1,26 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <h3>Hey!</h3>
+  <!-- age below is how to send down props to a child component. always remember to bind -->
+  <greeting :age="age"></greeting>
+  <!-- @age-change below listens to the method in that component with the same name. we're making it increment age here -->
+  <!-- remember that age gets updated for any other child components as well -->
+  <user :age="age" @age-change="updateAge"></user>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Greeting from "./components/Greeting.vue";
+import User from "./components/User.vue";
 
 export default {
+  // name is used to identify components within the vue devtools on the browser
   name: "App",
+  //below is how to register a component locally. don't forget to import the component within the script tag
   components: {
-    HelloWorld,
+    Greeting,
+    User,
+  },
+  data() {
+    return {
+      //age is set here so multiple child components can depend on and use it
+      age: 20,
+    };
+  },
+  methods: {
+    updateAge(num) {
+      this.age += num;
+    },
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
