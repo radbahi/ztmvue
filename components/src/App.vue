@@ -4,7 +4,7 @@
   <greeting :age="age"></greeting>
   <!-- @age-change below listens to the method in that component with the same name. we're making it increment age here -->
   <!-- remember that age gets updated for any other child components as well -->
-  <user :age="age" @age-change="updateAge"></user>
+  <user :age="age" @age-change="updateAge" :ageChangeFn="updateAgeCB"></user>
 </template>
 
 <script>
@@ -27,6 +27,10 @@ export default {
   },
   methods: {
     updateAge(num) {
+      this.age += num;
+    },
+    updateAgeCB(num) {
+      //alternative way to pass data to parent component from child with a callback func, but vue recommends using emit events
       this.age += num;
     },
   },
